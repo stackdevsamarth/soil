@@ -1,0 +1,25 @@
+{
+  "Rice": {
+    "idealPhRange": "5.5-7.0",
+    "waterNeed": "High",
+    "soilType": "Clay Loam"
+  },
+
+  "Wheat": {
+    "idealPhRange": "6.0-7.5",
+    "waterNeed": "Moderate",
+    "soilType": "Loamy"
+  },
+
+  "Tomato": {
+    "idealPhRange": "6.0-6.8",
+    "waterNeed": "Moderate",
+    "soilType": "Sandy Loam"
+  },
+
+  "Corn": {
+    "idealPhRange": "5.8-7.0",
+    "waterNeed": "Medium",
+    "soilType": "Loamy"
+  }
+}

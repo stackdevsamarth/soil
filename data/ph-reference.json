@@ -1,0 +1,354 @@
+{
+  "metadata": {
+    "product": "SoilSense",
+    "version": "1.0.0",
+    "description": "AI-Calibrated Triple Indicator Soil pH Database",
+    "lastUpdated": "2026-01-01",
+    "indicators": [
+      "universal_indicator",
+      "methyl_red",
+      "thymol_blue"
+    ]
+  },
+
+  "weighting": {
+    "acidic": {
+      "range": "0-3",
+      "thymol_blue": 0.5,
+      "universal_indicator": 0.4,
+      "methyl_red": 0.1
+    },
+    "agriculture": {
+      "range": "4-7",
+      "methyl_red": 0.5,
+      "universal_indicator": 0.4,
+      "thymol_blue": 0.1
+    },
+    "alkaline": {
+      "range": "8-14",
+      "thymol_blue": 0.5,
+      "universal_indicator": 0.4,
+      "methyl_red": 0.1
+    }
+  },
+
+  "phLevels": [
+    {
+      "ph": 0.0,
+      "classification": "Extremely Strong Acid",
+      "soilCondition": "Critical",
+      "soilHealthScore": 8,
+      "recommendedAction": "Immediate liming required",
+      "cropCompatibility": ["None"],
+      "waterRetention": "Very Poor",
+      "organicMatter": "Very Low",
+      "fertilizerRecommendation": "Apply agricultural lime and compost",
+
+      "nutrients": {
+        "nitrogen": "Very Low",
+        "phosphorus": "Locked",
+        "potassium": "Very Low"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#800000",
+          "label": "Maroon"
+        },
+        "methyl_red": {
+          "hex": "#D22B2B",
+          "label": "Red"
+        },
+        "thymol_blue": {
+          "hex": "#D22B2B",
+          "label": "Red"
+        }
+      }
+    },
+
+    {
+      "ph": 4.5,
+      "classification": "Weak Acid",
+      "soilCondition": "Moderately Acidic",
+      "soilHealthScore": 52,
+      "recommendedAction": "Add mild lime treatment",
+      "cropCompatibility": [
+        "Potato",
+        "Tea",
+        "Blueberry"
+      ],
+      "waterRetention": "Moderate",
+      "organicMatter": "Medium",
+
+      "fertilizerRecommendation": "Add calcium carbonate and organic compost",
+
+      "nutrients": {
+        "nitrogen": "Low",
+        "phosphorus": "Medium",
+        "potassium": "Medium"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#D0FF00",
+          "label": "Yellow Lime"
+        },
+        "methyl_red": {
+          "hex": "#FF5400",
+          "label": "Orange Red"
+        },
+        "thymol_blue": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        }
+      }
+    },
+
+    {
+      "ph": 5.5,
+      "classification": "Slightly Acidic",
+      "soilCondition": "Healthy",
+      "soilHealthScore": 76,
+      "recommendedAction": "Maintain current balance",
+
+      "cropCompatibility": [
+        "Rice",
+        "Corn",
+        "Tomato",
+        "Soybean"
+      ],
+
+      "waterRetention": "Good",
+      "organicMatter": "Moderate",
+
+      "fertilizerRecommendation": "Use balanced NPK fertilizer",
+
+      "nutrients": {
+        "nitrogen": "Moderate",
+        "phosphorus": "Good",
+        "potassium": "Balanced"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#7CE000",
+          "label": "Greenish Yellow"
+        },
+        "methyl_red": {
+          "hex": "#FFC000",
+          "label": "Gold Orange"
+        },
+        "thymol_blue": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        }
+      }
+    },
+
+    {
+      "ph": 6.5,
+      "classification": "Near Neutral",
+      "soilCondition": "Optimal",
+      "soilHealthScore": 94,
+      "recommendedAction": "Excellent soil condition",
+
+      "cropCompatibility": [
+        "Wheat",
+        "Rice",
+        "Tomato",
+        "Corn",
+        "Sugarcane",
+        "Vegetables"
+      ],
+
+      "waterRetention": "Optimal",
+      "organicMatter": "High",
+
+      "fertilizerRecommendation": "Minimal supplementation needed",
+
+      "nutrients": {
+        "nitrogen": "Balanced",
+        "phosphorus": "High",
+        "potassium": "High"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#008000",
+          "label": "Green"
+        },
+        "methyl_red": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        },
+        "thymol_blue": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        }
+      }
+    },
+
+    {
+      "ph": 7.0,
+      "classification": "Neutral",
+      "soilCondition": "Excellent",
+      "soilHealthScore": 98,
+
+      "recommendedAction": "Perfect agricultural balance",
+
+      "cropCompatibility": [
+        "Most Crops",
+        "Vegetables",
+        "Wheat",
+        "Rice",
+        "Maize",
+        "Cotton"
+      ],
+
+      "waterRetention": "Excellent",
+      "organicMatter": "High",
+
+      "fertilizerRecommendation": "Maintain existing nutrient cycle",
+
+      "nutrients": {
+        "nitrogen": "Optimal",
+        "phosphorus": "Optimal",
+        "potassium": "Optimal"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#006400",
+          "label": "Dark Green"
+        },
+        "methyl_red": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        },
+        "thymol_blue": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        }
+      }
+    },
+
+    {
+      "ph": 8.5,
+      "classification": "Weak Base",
+      "soilCondition": "Alkaline",
+      "soilHealthScore": 64,
+
+      "recommendedAction": "Add sulfur compounds",
+
+      "cropCompatibility": [
+        "Barley",
+        "Beetroot",
+        "Cabbage"
+      ],
+
+      "waterRetention": "Moderate",
+      "organicMatter": "Low",
+
+      "fertilizerRecommendation": "Use sulfur and acidic organic compost",
+
+      "nutrients": {
+        "nitrogen": "Medium",
+        "phosphorus": "Low",
+        "potassium": "Moderate"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#00BFFF",
+          "label": "Sky Blue"
+        },
+        "methyl_red": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        },
+        "thymol_blue": {
+          "hex": "#6B9E2B",
+          "label": "Green"
+        }
+      }
+    },
+
+    {
+      "ph": 10.0,
+      "classification": "Strong Base",
+      "soilCondition": "Highly Alkaline",
+      "soilHealthScore": 32,
+
+      "recommendedAction": "Urgent pH correction needed",
+
+      "cropCompatibility": [
+        "Very Limited"
+      ],
+
+      "waterRetention": "Poor",
+      "organicMatter": "Low",
+
+      "fertilizerRecommendation": "Use gypsum and sulfur treatment",
+
+      "nutrients": {
+        "nitrogen": "Low",
+        "phosphorus": "Very Low",
+        "potassium": "Low"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#6A5ACD",
+          "label": "Slate Blue Violet"
+        },
+        "methyl_red": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        },
+        "thymol_blue": {
+          "hex": "#0000FF",
+          "label": "Deep Blue"
+        }
+      }
+    },
+
+    {
+      "ph": 14.0,
+      "classification": "Extremely Strong Base",
+      "soilCondition": "Hazardous",
+      "soilHealthScore": 4,
+
+      "recommendedAction": "Immediate remediation required",
+
+      "cropCompatibility": [
+        "None"
+      ],
+
+      "waterRetention": "Extremely Poor",
+      "organicMatter": "Critical",
+
+      "fertilizerRecommendation": "Complete soil rehabilitation required",
+
+      "nutrients": {
+        "nitrogen": "Unavailable",
+        "phosphorus": "Unavailable",
+        "potassium": "Unavailable"
+      },
+
+      "indicators": {
+        "universal_indicator": {
+          "hex": "#8B0000",
+          "label": "Brown Red"
+        },
+        "methyl_red": {
+          "hex": "#FFFF00",
+          "label": "Yellow"
+        },
+        "thymol_blue": {
+          "hex": "#0000FF",
+          "label": "Deep Blue"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "acidicSoil": {
+    "condition": "pH below 5.5",
+    "recommendation": [
+      "Agricultural Lime",
+      "Dolomite",
+      "Organic Compost"
+    ]
+  },
+
+  "neutralSoil": {
+    "condition": "pH 6.0-7.0",
+    "recommendation": [
+      "Balanced NPK",
+      "Organic Mulch"
+    ]
+  },
+
+  "alkalineSoil": {
+    "condition": "pH above 8.0",
+    "recommendation": [
+      "Sulfur",
+      "Gypsum",
+      "Acidic Compost"
+    ]
+  }
+}

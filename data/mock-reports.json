@@ -1,0 +1,76 @@
+[
+  {
+    "id": "SS-2026-001",
+    "farmerName": "Rajesh Kumar",
+    "location": "Lucknow, India",
+    "date": "2026-01-12",
+
+    "scanResult": {
+      "ph": 6.4,
+      "confidence": 96,
+      "soilHealthScore": 91,
+      "condition": "Healthy"
+    },
+
+    "nutrients": {
+      "nitrogen": "Balanced",
+      "phosphorus": "Good",
+      "potassium": "Optimal"
+    },
+
+    "recommendedCrops": [
+      "Rice",
+      "Wheat",
+      "Tomato",
+      "Corn"
+    ],
+
+    "fertilizerRecommendation":
+      "Apply light organic compost every 30 days",
+
+    "waterRetention": "Excellent",
+
+    "aiInsights": [
+      "Soil condition is ideal for high yield farming",
+      "Minimal intervention required",
+      "Maintain current irrigation pattern"
+    ]
+  },
+
+  {
+    "id": "SS-2026-002",
+    "farmerName": "Amit Sharma",
+    "location": "Kanpur, India",
+    "date": "2026-01-15",
+
+    "scanResult": {
+      "ph": 4.8,
+      "confidence": 92,
+      "soilHealthScore": 58,
+      "condition": "Moderately Acidic"
+    },
+
+    "nutrients": {
+      "nitrogen": "Low",
+      "phosphorus": "Medium",
+      "potassium": "Medium"
+    },
+
+    "recommendedCrops": [
+      "Potato",
+      "Tea",
+      "Blueberry"
+    ],
+
+    "fertilizerRecommendation":
+      "Use lime treatment and calcium supplementation",
+
+    "waterRetention": "Moderate",
+
+    "aiInsights": [
+      "Acidic imbalance detected",
+      "Add organic matter to improve nutrient retention",
+      "Monitor pH every 2 weeks"
+    ]
+  }
+]
