@@ -55,6 +55,9 @@ export default function ScanPage() {
           phosphorus: randomEntry.nutrients.phosphorus,
           potassium: randomEntry.nutrients.potassium,
         },
+        recommendedCrops: randomEntry.cropCompatibility,
+        fertilizerRecommendation: randomEntry.fertilizerRecommendation,
+        waterRetention: randomEntry.waterRetention,
         aiInsights: [
           randomEntry.recommendedAction,
           `Optimal crops for this soil: ${randomEntry.cropCompatibility.slice(0, 2).join(", ")}.`,

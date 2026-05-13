@@ -7,6 +7,7 @@
 
     "scanResult": {
       "ph": 6.4,
+      "classification": "Slightly Acidic",
       "confidence": 96,
       "soilHealthScore": 91,
       "condition": "Healthy"
@@ -45,6 +46,7 @@
 
     "scanResult": {
       "ph": 4.8,
+      "classification": "Weak Acid",
       "confidence": 92,
       "soilHealthScore": 58,
       "condition": "Moderately Acidic"

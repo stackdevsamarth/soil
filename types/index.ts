@@ -48,6 +48,7 @@ export interface PhDatabase {
 
 export interface ScanResult {
   ph: number;
+  classification: string;
   confidence: number;
   soilHealthScore: number;
   condition: string;
@@ -69,7 +70,7 @@ export interface SoilReport {
     methyl_red: string;
     thymol_blue: string;
   };
-  image?: string; 
+  image?: string;
 }
 
 export interface User {
