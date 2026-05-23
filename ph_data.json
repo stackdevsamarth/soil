@@ -1,0 +1,643 @@
+{
+  "universalIndicator": [
+    {
+      "pH": 0,
+      "hex": "#800000",
+      "color": "Maroon",
+      "description": "Extremely Strong Acid"
+    },
+    {
+      "pH": 0.5,
+      "hex": "#C00000",
+      "color": "Dark Red",
+      "description": "Very Strong Acid"
+    },
+    {
+      "pH": 1,
+      "hex": "#D00000",
+      "color": "Red",
+      "description": "Strong Acid"
+    },
+    {
+      "pH": 1.5,
+      "hex": "#E53A00",
+      "color": "Red-Orange",
+      "description": "Strong Acid"
+    },
+    {
+      "pH": 2,
+      "hex": "#FF5400",
+      "color": "Deep Orange",
+      "description": "Acid"
+    },
+    {
+      "pH": 2.5,
+      "hex": "#FF8000",
+      "color": "Orange",
+      "description": "Acid"
+    },
+    {
+      "pH": 3,
+      "hex": "#FFA500",
+      "color": "Orange-Yellow",
+      "description": "Acid"
+    },
+    {
+      "pH": 3.5,
+      "hex": "#FFC800",
+      "color": "Deep Yellow",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 4,
+      "hex": "#FFFF00",
+      "color": "Bright Yellow",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 4.5,
+      "hex": "#D0FF00",
+      "color": "Yellow-Lime",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 5,
+      "hex": "#A6F700",
+      "color": "Lime Green",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 5.5,
+      "hex": "#7CE000",
+      "color": "Greenish-Yellow",
+      "description": "Slightly Acidic"
+    },
+    {
+      "pH": 6,
+      "hex": "#40A000",
+      "color": "Light Green",
+      "description": "Close to Neutral"
+    },
+    {
+      "pH": 6.5,
+      "hex": "#008000",
+      "color": "Green",
+      "description": "Approaching Neutral"
+    },
+    {
+      "pH": 7,
+      "hex": "#006400",
+      "color": "Dark Green",
+      "description": "NEUTRAL"
+    },
+    {
+      "pH": 7.5,
+      "hex": "#008080",
+      "color": "Teal",
+      "description": "Slightly Basic"
+    },
+    {
+      "pH": 8,
+      "hex": "#00A3C9",
+      "color": "Aqua Blue",
+      "description": "Weak Base"
+    },
+    {
+      "pH": 8.5,
+      "hex": "#00BFFF",
+      "color": "Sky Blue",
+      "description": "Weak Base"
+    },
+    {
+      "pH": 9,
+      "hex": "#0080FF",
+      "color": "Medium Blue",
+      "description": "Base"
+    },
+    {
+      "pH": 9.5,
+      "hex": "#4169E1",
+      "color": "Royal Blue",
+      "description": "Base"
+    },
+    {
+      "pH": 10,
+      "hex": "#6A5ACD",
+      "color": "Slate Blue-Violet",
+      "description": "Base"
+    },
+    {
+      "pH": 10.5,
+      "hex": "#8A2BE2",
+      "color": "Blue-Violet",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 11,
+      "hex": "#9400D3",
+      "color": "Dark Violet",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 11.5,
+      "hex": "#A020F0",
+      "color": "Purple",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 12,
+      "hex": "#C71585",
+      "color": "Fuchsia/Rose",
+      "description": "Very Strong Base"
+    },
+    {
+      "pH": 12.5,
+      "hex": "#FF00FF",
+      "color": "Magenta",
+      "description": "Very Strong Base"
+    },
+    {
+      "pH": 13,
+      "hex": "#FF1493",
+      "color": "Deep Pink",
+      "description": "Extremely Strong Base"
+    },
+    {
+      "pH": 13.5,
+      "hex": "#C71585",
+      "color": "Deep Rose",
+      "description": "Extremely Strong Base"
+    },
+    {
+      "pH": 14,
+      "hex": "#8B0000",
+      "color": "Brown-Red",
+      "description": "Extremely Strong Base"
+    }
+  ],
+  "methylRed": [
+    {
+      "pH": 0,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Extremely Strong Acid"
+    },
+    {
+      "pH": 0.5,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Very Strong Acid"
+    },
+    {
+      "pH": 1,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Strong Acid"
+    },
+    {
+      "pH": 1.5,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Strong Acid"
+    },
+    {
+      "pH": 2,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Acid"
+    },
+    {
+      "pH": 2.5,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Acid"
+    },
+    {
+      "pH": 3,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Acid"
+    },
+    {
+      "pH": 4,
+      "hex": "#D22B2B",
+      "color": "Red",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 4.5,
+      "hex": "#FF5400",
+      "color": "Orange-Red",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 5,
+      "hex": "#FF8C00",
+      "color": "Dark Orange",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 5.5,
+      "hex": "#FFC000",
+      "color": "Gold-Orange",
+      "description": "Slightly Acidic"
+    },
+    {
+      "pH": 6,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Close to Neutral"
+    },
+    {
+      "pH": 6.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Approaching Neutral"
+    },
+    {
+      "pH": 7,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "NEUTRAL"
+    },
+    {
+      "pH": 7.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Slightly Basic"
+    },
+    {
+      "pH": 8,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Weak Base"
+    },
+    {
+      "pH": 8.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Weak Base"
+    },
+    {
+      "pH": 9,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Base"
+    },
+    {
+      "pH": 9.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Base"
+    },
+    {
+      "pH": 10,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Base"
+    },
+    {
+      "pH": 10.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 11,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 11.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 12,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Very Strong Base"
+    },
+    {
+      "pH": 12.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Very Strong Base"
+    },
+    {
+      "pH": 13,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Extremely Strong Base"
+    },
+    {
+      "pH": 13.5,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Extremely Strong Base"
+    },
+    {
+      "pH": 14,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Extremely Strong Base"
+    }
+  ],
+  "thymolBlue": [
+    {
+      "pH": 0,
+      "hex": "#FF0000",
+      "color": "Red",
+      "description": "Extremely Strong Acid"
+    },
+    {
+      "pH": 0.5,
+      "hex": "#FF4D4D",
+      "color": "Light Red",
+      "description": "Very Strong Acid"
+    },
+    {
+      "pH": 1,
+      "hex": "#FF9999",
+      "color": "Pink",
+      "description": "Strong Acid"
+    },
+    {
+      "pH": 1.2,
+      "hex": "#FFB3B3",
+      "color": "Light Pink",
+      "description": "Strong Acid - Transition Start"
+    },
+    {
+      "pH": 1.5,
+      "hex": "#FFCCCC",
+      "color": "Very Light Pink",
+      "description": "Strong Acid"
+    },
+    {
+      "pH": 2,
+      "hex": "#FFE6CC",
+      "color": "Peach",
+      "description": "Acid - Transitioning"
+    },
+    {
+      "pH": 2.5,
+      "hex": "#FFF2CC",
+      "color": "Light Peach",
+      "description": "Acid"
+    },
+    {
+      "pH": 2.8,
+      "hex": "#FFFFCC",
+      "color": "Very Light Yellow",
+      "description": "Acid - Transition End"
+    },
+    {
+      "pH": 3,
+      "hex": "#FFFF99",
+      "color": "Pale Yellow",
+      "description": "Acid"
+    },
+    {
+      "pH": 4,
+      "hex": "#FFFF66",
+      "color": "Light Yellow",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 5,
+      "hex": "#FFFF33",
+      "color": "Bright Yellow",
+      "description": "Weak Acid"
+    },
+    {
+      "pH": 6,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Close to Neutral"
+    },
+    {
+      "pH": 7,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "NEUTRAL"
+    },
+    {
+      "pH": 8,
+      "hex": "#FFFF00",
+      "color": "Yellow",
+      "description": "Weak Base - Transition Start"
+    },
+    {
+      "pH": 8.5,
+      "hex": "#CCFF99",
+      "color": "Yellow-Green",
+      "description": "Weak Base - Transitioning"
+    },
+    {
+      "pH": 9,
+      "hex": "#99FF99",
+      "color": "Light Green",
+      "description": "Base - Transitioning"
+    },
+    {
+      "pH": 9.5,
+      "hex": "#66CCFF",
+      "color": "Light Blue",
+      "description": "Base"
+    },
+    {
+      "pH": 9.6,
+      "hex": "#3399FF",
+      "color": "Medium Blue",
+      "description": "Base - Transition Complete"
+    },
+    {
+      "pH": 10,
+      "hex": "#0066CC",
+      "color": "Deep Blue",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 11,
+      "hex": "#004C99",
+      "color": "Dark Blue",
+      "description": "Strong Base"
+    },
+    {
+      "pH": 12,
+      "hex": "#003366",
+      "color": "Very Dark Blue",
+      "description": "Very Strong Base"
+    },
+    {
+      "pH": 13,
+      "hex": "#001933",
+      "color": "Navy",
+      "description": "Extremely Strong Base"
+    },
+    {
+      "pH": 14,
+      "hex": "#000D1A",
+      "color": "Deep Navy",
+      "description": "Extremely Strong Base"
+    }
+  ],
+  "smartWeighting": {
+    "veryAcidic": {
+      "range": {
+        "min": 0,
+        "max": 3
+      },
+      "name": "Very Acidic Soils",
+      "weights": {
+        "thymolBlue": 50,
+        "universalIndicator": 40,
+        "methylRed": 10
+      }
+    },
+    "agricultural": {
+      "range": {
+        "min": 4,
+        "max": 7
+      },
+      "name": "Agricultural Range",
+      "weights": {
+        "methylRed": 50,
+        "universalIndicator": 40,
+        "thymolBlue": 10
+      }
+    },
+    "alkaline": {
+      "range": {
+        "min": 8,
+        "max": 14
+      },
+      "name": "Alkaline Soils",
+      "weights": {
+        "thymolBlue": 50,
+        "universalIndicator": 40,
+        "methylRed": 10
+      }
+    }
+  },
+  "cropRecommendations": {
+    "veryAcidic": {
+      "range": "pH 4.0 - 5.5",
+      "suitableCrops": [
+        "Blueberries",
+        "Potatoes",
+        "Rhododendrons",
+        "Azaleas",
+        "Strawberries"
+      ],
+      "amendments": [
+        "Lime application recommended",
+        "Dolomitic lime",
+        "Wood ash"
+      ],
+      "issues": [
+        "Aluminum toxicity risk",
+        "Nutrient lockout - Phosphorus",
+        "Reduced microbial activity"
+      ]
+    },
+    "slightlyAcidic": {
+      "range": "pH 5.5 - 6.5",
+      "suitableCrops": [
+        "Tomatoes",
+        "Peppers",
+        "Corn",
+        "Wheat",
+        "Soybeans",
+        "Most vegetables"
+      ],
+      "amendments": [
+        "Monitor pH annually",
+        "Light lime if needed"
+      ],
+      "issues": [
+        "Generally optimal for most crops"
+      ]
+    },
+    "neutral": {
+      "range": "pH 6.5 - 7.5",
+      "suitableCrops": [
+        "Broccoli",
+        "Cabbage",
+        "Cauliflower",
+        "Lettuce",
+        "Beans",
+        "Peas"
+      ],
+      "amendments": [
+        "Maintain current pH",
+        "Organic matter addition"
+      ],
+      "issues": [
+        "Ideal range for nutrient availability"
+      ]
+    },
+    "slightlyAlkaline": {
+      "range": "pH 7.5 - 8.5",
+      "suitableCrops": [
+        "Asparagus",
+        "Spinach",
+        "Beets",
+        "Cantaloupe",
+        "Cabbage"
+      ],
+      "amendments": [
+        "Sulfur application",
+        "Organic matter (compost)",
+        "Acidifying fertilizers"
+      ],
+      "issues": [
+        "Iron chlorosis risk",
+        "Micronutrient deficiencies"
+      ]
+    },
+    "alkaline": {
+      "range": "pH 8.5 - 14",
+      "suitableCrops": [
+        "Limited crop growth",
+        "Salt-tolerant species only"
+      ],
+      "amendments": [
+        "Significant sulfur needed",
+        "Organic matter incorporation",
+        "Consider raised beds"
+      ],
+      "issues": [
+        "Severe nutrient lockout",
+        "Sodium toxicity",
+        "Poor soil structure"
+      ]
+    }
+  },
+  "indicatorProperties": {
+    "universalIndicator": {
+      "name": "Universal Indicator",
+      "range": "0-14",
+      "accuracy": "±0.5 pH",
+      "bestRange": "Full spectrum",
+      "colorTransition": "Multi-color (rainbow)"
+    },
+    "methylRed": {
+      "name": "Methyl Red",
+      "range": "4.5-6.5",
+      "accuracy": "±0.2 pH",
+      "bestRange": "Agricultural (pH 4.5-6.5)",
+      "colorTransition": "Red to Yellow"
+    },
+    "thymolBlue": {
+      "name": "Thymol Blue",
+      "range": "1.2-2.8 and 8.0-9.6",
+      "accuracy": "±0.3 pH",
+      "bestRange": "Acidic and Alkaline extremes",
+      "colorTransition": "Red to Yellow (acidic), Yellow to Blue (alkaline)"
+    }
+  }
+}

@@ -52,6 +52,7 @@ export interface ScanResult {
   confidence: number;
   soilHealthScore: number;
   condition: string;
+  qrId: string;
 }
 
 export interface SoilReport {
@@ -66,9 +67,16 @@ export interface SoilReport {
   waterRetention: string;
   aiInsights: string[];
   colorMatched?: {
-    universal_indicator: string;
-    methyl_red: string;
-    thymol_blue: string;
+    scanned: {
+      universal_indicator: string;
+      methyl_red: string;
+      thymol_blue: string;
+    };
+    reference: {
+      universal_indicator: string;
+      methyl_red: string;
+      thymol_blue: string;
+    };
   };
   image?: string;
 }
