@@ -13,8 +13,8 @@ export default function DashboardPage() {
   const latestReport = reports.length > 0 ? reports[0] : null;
 
   return (
-    <div className="min-h-screen bg-dark-0 pb-20 pt-24 px-4 md:px-8">
-      <div className="container max-w-6xl mx-auto space-y-12">
+    <div className="pb-24 pt-12 px-4 md:px-6">
+      <div className="container max-w-5xl mx-auto space-y-12">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">

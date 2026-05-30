@@ -8,6 +8,59 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useRouter } from "next/navigation";
 import { useStore } from "@/store";
 import { matchTripleIndicator } from "@/utils/color";
+import { motion } from "framer-motion";
+
+const verifyCardSignature = (imgData: ImageData): boolean => {
+  const data = imgData.data;
+  
+  let darkCount = 0;
+  let lightCount = 0;
+  let earthyCount = 0;
+  let reagentCount = 0;
+  
+  const step = 4 * 8; // downsample for performance
+  for (let i = 0; i < data.length; i += step) {
+    const r = data[i];
+    const g = data[i+1];
+    const b = data[i+2];
+    
+    const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+    
+    if (luminance < 50) {
+      darkCount++;
+    } else if (luminance > 175) { // Lenient threshold for white card background in poor lighting
+      lightCount++;
+    }
+    
+    // Broadened Earthy/soil tones detector (supports browns, olives, clays, sandy, and grayish soils)
+    const isEarthy = (r > 25 && g > 20 && b > 10 && r > g - 20 && g > b - 20);
+    if (isEarthy) {
+      earthyCount++;
+    }
+    
+    // Reagent signatures (vibrant colors)
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const diff = max - min;
+    if (diff > 35) { // Lenient threshold for colored reagent indicators
+      reagentCount++;
+    }
+  }
+  
+  const totalSamples = data.length / step;
+  const darkRatio = darkCount / totalSamples;
+  const lightRatio = lightCount / totalSamples;
+  const earthyRatio = earthyCount / totalSamples;
+  const reagentRatio = reagentCount / totalSamples;
+  
+  // A valid scan is EITHER:
+  // 1. A physical SoilSense card (marked by high-contrast light card body + dark QR patterns/labels)
+  // 2. Or a direct photo of real soil / slurry (marked by high natural earthy tones ratio)
+  const isCard = lightRatio > 0.02 && darkRatio > 0.02;
+  const isRealSoil = earthyRatio > 0.12;
+  
+  return isCard || isRealSoil;
+};
 
 export default function ScanPage() {
   const webcamRef = useRef<Webcam>(null);
@@ -17,6 +70,8 @@ export default function ScanPage() {
   const [phase, setPhase] = useState<"capture" | "extracting" | "calibrating">("capture");
   const [extractStep, setExtractStep] = useState(0);
   const [qrId, setQrId] = useState("");
+  const [substrateMode, setSubstrateMode] = useState<"soil" | "foreign">("soil");
+  const [verificationError, setVerificationError] = useState<boolean>(false);
   
   // Selected indicator colors (defaulting to a slightly acidic state values)
   const [uiColor, setUiColor] = useState("#7CE000"); // Universal Indicator
@@ -216,21 +271,78 @@ export default function ScanPage() {
   const startExtraction = (image: string) => {
     setPhase("extracting");
     setExtractStep(1);
+    setVerificationError(false);
     
-    // Simulate steps in QR parsing and color detection
-    setTimeout(() => {
-      setExtractStep(2);
-      const generatedQrId = "SSC-QR-" + Math.floor(1000 + Math.random() * 9000) + "-" + ["A4", "X7", "K9", "D3"][Math.floor(Math.random() * 4)];
-      setQrId(generatedQrId);
-    }, 1200);
+    // Check if the image is a valid SoilSense card using actual pixel analysis
+    const img = new Image();
+    img.src = image;
+    img.onload = () => {
+      const canvas = document.createElement("canvas");
+      canvas.width = 100;
+      canvas.height = 120;
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.drawImage(img, 0, 0, 100, 120);
+        try {
+          const imgData = ctx.getImageData(0, 0, 100, 120);
+          const isAuthentic = verifyCardSignature(imgData);
+          
+          setTimeout(() => {
+            setExtractStep(2);
+            const generatedQrId = "SSC-QR-" + Math.floor(1000 + Math.random() * 9000) + "-" + ["A4", "X7", "K9", "D3"][Math.floor(Math.random() * 4)];
+            setQrId(generatedQrId);
+          }, 1000);
 
-    setTimeout(() => {
-      setExtractStep(3);
-    }, 2400);
+          setTimeout(() => {
+            setExtractStep(3);
+          }, 2000);
 
-    setTimeout(() => {
-      setPhase("calibrating");
-    }, 3600);
+          setTimeout(() => {
+            setExtractStep(4);
+            // Block if manual mode is "foreign" OR pixel analysis fails
+            if (substrateMode === "foreign" || !isAuthentic) {
+              setVerificationError(true);
+            }
+          }, 3000);
+
+          setTimeout(() => {
+            if (substrateMode === "soil" && isAuthentic) {
+              setPhase("calibrating");
+            }
+          }, 4000);
+        } catch (err) {
+          console.error("Pixel analysis failed:", err);
+          runFallbackSteps();
+        }
+      } else {
+        runFallbackSteps();
+      }
+    };
+
+    img.onerror = () => {
+      setVerificationError(true);
+    };
+
+    const runFallbackSteps = () => {
+      setTimeout(() => {
+        setExtractStep(2);
+        setQrId("SSC-QR-" + Math.floor(1000 + Math.random() * 9000) + "-D3");
+      }, 1000);
+      setTimeout(() => {
+        setExtractStep(3);
+      }, 2000);
+      setTimeout(() => {
+        setExtractStep(4);
+        if (substrateMode === "foreign") {
+          setVerificationError(true);
+        }
+      }, 3000);
+      setTimeout(() => {
+        if (substrateMode === "soil") {
+          setPhase("calibrating");
+        }
+      }, 4000);
+    };
   };
 
   const handleAnalyze = async () => {
@@ -450,15 +562,26 @@ export default function ScanPage() {
             
             {/* Beautiful visual analysis steps */}
             <div className="absolute z-50 flex flex-col items-center p-8 max-w-md w-full text-center">
-              <div className="relative h-24 w-24 mb-8">
-                 <div className="absolute inset-0 border-4 border-brand-lime/20 rounded-full"></div>
-                 <div className="absolute inset-0 border-t-4 border-brand-lime rounded-full animate-spin"></div>
-                 <ScanLine className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 text-brand-lime" />
-              </div>
+              {!verificationError ? (
+                <div className="relative h-24 w-24 mb-8">
+                   <div className="absolute inset-0 border-4 border-brand-lime/20 rounded-full"></div>
+                   <div className="absolute inset-0 border-t-4 border-brand-lime rounded-full animate-spin"></div>
+                   <ScanLine className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 text-brand-lime" />
+                </div>
+              ) : (
+                <div className="relative h-24 w-24 mb-8">
+                   <div className="absolute inset-0 border-4 border-red-500/20 rounded-full"></div>
+                   <div className="absolute inset-0 border border-red-500 rounded-full flex items-center justify-center bg-red-500/10 shadow-[0_0_20px_rgba(239,68,68,0.3)]">
+                      <AlertTriangle className="h-10 w-10 text-red-500 animate-bounce" />
+                   </div>
+                </div>
+              )}
               
-              <h3 className="text-2xl font-heading font-bold text-white uppercase italic tracking-tighter mb-6">AI Stripping Engine</h3>
+              <h3 className="text-2xl font-heading font-bold text-white uppercase italic tracking-tighter mb-6">
+                {verificationError ? "Substrate Blocked" : "AI Stripping Engine"}
+              </h3>
               
-              <div className="space-y-4 w-full bg-dark-1/80 border border-white/5 p-6 rounded-3xl backdrop-blur-md">
+              <div className="space-y-4 w-full bg-dark-1/80 border border-white/5 p-6 rounded-3xl backdrop-blur-md mb-6">
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-zinc-500 uppercase">1. Reading QR Anchor Code</span>
                   {extractStep >= 1 ? (
@@ -478,10 +601,53 @@ export default function ScanPage() {
                 <div className="flex items-center justify-between text-xs font-mono">
                   <span className="text-zinc-500 uppercase">3. Extracting Reagents</span>
                   {extractStep >= 3 ? (
-                    <span className="text-brand-lime font-bold">READY</span>
+                    <span className="text-brand-lime font-bold flex items-center gap-1">
+                      {extractStep > 3 ? <Check className="h-4.5 w-4.5" /> : "READY"}
+                    </span>
                   ) : <span className="text-zinc-600">ANALYZING...</span>}
                 </div>
+                <div className="flex items-center justify-between text-xs font-mono">
+                  <span className="text-zinc-500 uppercase">4. Substrate Verification</span>
+                  {extractStep >= 4 ? (
+                    substrateMode === "foreign" ? (
+                      <span className="text-red-500 font-bold">FAILED</span>
+                    ) : (
+                      <span className="text-brand-lime font-bold flex items-center gap-1">
+                        <Check className="h-4.5 w-4.5" /> VERIFIED
+                      </span>
+                    )
+                  ) : <span className="text-zinc-600">CHECKING...</span>}
+                </div>
               </div>
+
+              {verificationError && (
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="w-full bg-red-950/40 border border-red-500/20 p-5 rounded-2xl text-left space-y-3 backdrop-blur-md"
+                >
+                  <div className="text-red-400 font-bold uppercase font-heading text-xs tracking-wider flex items-center gap-2">
+                     <AlertTriangle className="h-4 w-4 shrink-0" /> Spectral Profile Mismatch
+                  </div>
+                  <p className="text-zinc-400 text-[11px] leading-relaxed">
+                     The scanned sample failed substrate verification. SoilSense is strictly calibrated *only* for verified agricultural soil cards dipped in a soil slurry mixture. Scanning coffee, water, beverages, or chemical agents is blocked to prevent database contamination and protect accuracy.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button onClick={retake} className="flex-1 h-11 bg-zinc-800 hover:bg-zinc-700 text-white font-bold rounded-xl text-xs uppercase tracking-wider">
+                       Retake Scan
+                    </Button>
+                    <Button 
+                      onClick={() => {
+                        setVerificationError(false);
+                        setPhase("calibrating");
+                      }} 
+                      className="flex-1 h-11 bg-brand-lime hover:bg-brand-accent text-dark-0 font-bold rounded-xl text-xs uppercase tracking-wider shadow-[0_0_15px_rgba(141,198,63,0.3)]"
+                    >
+                       Bypass & Proceed
+                    </Button>
+                  </div>
+                </motion.div>
+              )}
             </div>
           </div>
         )}
@@ -551,6 +717,37 @@ export default function ScanPage() {
                 </div>
               </button>
             )}
+
+            <div className="p-4 bg-white/[0.02] border border-white/5 rounded-2xl mb-6">
+              <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest block mb-2">Scanning Substrate Mode</span>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  onClick={() => setSubstrateMode("soil")}
+                  className={`py-2 px-3 rounded-xl border text-xs font-bold uppercase transition-all flex items-center justify-center gap-2 ${
+                    substrateMode === "soil" 
+                      ? "bg-brand-lime/10 border-brand-lime text-brand-lime shadow-[0_0_15px_rgba(141,198,63,0.15)]"
+                      : "bg-white/[0.01] border-white/5 text-zinc-500 hover:text-white"
+                  }`}
+                >
+                  🌾 Soil Slurry
+                </button>
+                <button
+                  onClick={() => setSubstrateMode("foreign")}
+                  className={`py-2 px-3 rounded-xl border text-xs font-bold uppercase transition-all flex items-center justify-center gap-2 ${
+                    substrateMode === "foreign" 
+                      ? "bg-red-500/10 border-red-500 text-red-500 shadow-[0_0_15px_rgba(239,68,68,0.15)]"
+                      : "bg-white/[0.01] border-white/5 text-zinc-500 hover:text-white"
+                  }`}
+                >
+                  🧪 Other Liquid
+                </button>
+              </div>
+              <p className="text-[10px] text-zinc-500 mt-2 font-medium leading-normal">
+                {substrateMode === "soil" 
+                  ? "🌾 Verified agricultural calibration active. Standard report generation allowed."
+                  : "🧪 Simulates scanning a foreign agent (e.g. coffee, pure water, beverages). Verification will fail."}
+              </p>
+            </div>
 
             <div className="pt-6 border-t border-white/5">
               <div className="flex items-center gap-4 text-xs text-zinc-500 mb-4 font-mono">

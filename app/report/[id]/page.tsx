@@ -166,27 +166,27 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative glass rounded-3xl p-6 border border-white/10 overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
+          className="relative glass rounded-3xl p-5 sm:p-6 border border-white/10 overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
           {/* Glowing back-glow background */}
           <div className="absolute inset-0 bg-gradient-to-r from-brand-deep/30 via-transparent to-transparent pointer-events-none" />
           
-          <div className="flex items-center gap-5 z-10">
+          <div className="flex flex-col sm:flex-row items-center gap-5 z-10 w-full md:w-auto">
             <div className="h-14 w-14 rounded-2xl bg-white flex items-center justify-center shadow-lg shrink-0 p-2.5">
               <MiniQrCode value={qrId} size={36} />
             </div>
-            <div>
-              <div className="flex items-center gap-2 mb-1.5">
+            <div className="text-center sm:text-left">
+              <div className="flex items-center justify-center sm:justify-start gap-2 mb-1.5">
                 <span className="inline-flex h-2 w-2 rounded-full bg-brand-lime"></span>
                 <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.25em]">Verified AI Diagnostic Result</span>
               </div>
-              <h2 className="text-xl md:text-2xl font-heading font-bold italic uppercase tracking-tight flex items-center gap-3">
-                QR ID: <span className="text-brand-lime font-mono normal-case tracking-normal">{qrId}</span>
+              <h2 className="text-lg sm:text-xl md:text-2xl font-heading font-bold italic uppercase tracking-tight flex flex-wrap items-center justify-center sm:justify-start gap-2 md:gap-3">
+                QR ID: <span className="text-brand-lime font-mono normal-case tracking-normal break-all">{qrId}</span>
               </h2>
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 z-10">
+          <div className="flex flex-wrap items-center justify-center md:justify-end gap-3 z-10 w-full md:w-auto">
             <Link href="/scan">
               <Button variant="outline" className="h-11 rounded-xl border-white/10 bg-white/5 hover:bg-white/10 text-white font-bold uppercase tracking-wider text-xs">
                 <RefreshCw className="mr-2 h-4 w-4" /> Scan Again
@@ -199,7 +199,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
         </motion.div>
 
         {/* Back Link */}
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <Link href="/dashboard" className="inline-flex items-center text-xs font-bold text-zinc-500 hover:text-brand-lime uppercase tracking-widest transition-colors group">
             <ArrowLeft className="mr-2 h-4.5 w-4.5 group-hover:-translate-x-1 transition-transform" /> Back to Dashboard
           </Link>
@@ -218,12 +218,11 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
-            className="md:col-span-2 glass-card p-1 relative overflow-hidden"
+            className="md:col-span-2 glass-card p-6 sm:p-8 bg-gradient-to-br from-dark-1 via-dark-0 to-dark-1 flex flex-col items-center justify-center text-center space-y-6 relative overflow-hidden"
           >
-            <div className="bg-gradient-to-br from-dark-1 via-dark-0 to-dark-1 rounded-[30px] p-8 h-full flex flex-col items-center justify-center text-center space-y-6 relative">
               
               {/* Dial Rings */}
-              <div className="relative h-64 w-64 flex items-center justify-center mt-4">
+              <div className="relative h-56 w-56 sm:h-64 sm:w-64 flex items-center justify-center mt-4">
                 {/* Background Track ring */}
                 <div className="absolute inset-0 rounded-full border-8 border-white/5"></div>
                 {/* Colored visual range glow */}
@@ -238,7 +237,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
                 {/* Massive metallic circle inner display */}
                 <div className="absolute inset-4 rounded-full bg-zinc-950 border border-white/10 flex flex-col items-center justify-center shadow-2xl">
                   <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Measured pH</span>
-                  <h1 className="text-7xl md:text-8xl font-heading font-black italic tracking-tighter bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent">
+                  <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-black italic tracking-tighter bg-gradient-to-b from-white to-zinc-400 bg-clip-text text-transparent my-1 py-2.5 px-4 overflow-visible leading-none">
                     {ph.toFixed(1)}
                   </h1>
                   <span className="text-[10px] font-mono text-brand-lime mt-1 tracking-widest uppercase">Confidence: {scanResult.confidence}%</span>
@@ -253,7 +252,6 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
                   Soil Condition: <span className="text-brand-lime">{scanResult.condition}</span>
                 </h3>
               </div>
-            </div>
           </motion.div>
 
           {/* Color Verification Grid: The click vs reference verification proof */}
@@ -261,7 +259,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.15 }}
-            className="glass-card p-8 flex flex-col justify-between"
+            className="glass-card p-6 sm:p-8 flex flex-col justify-between"
           >
             <div>
               <h3 className="text-lg font-heading font-bold text-white uppercase italic tracking-tight mb-2">Color Verification</h3>
@@ -313,7 +311,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
             </div>
 
             <div className="mt-6 pt-6 border-t border-white/5 text-[9px] font-mono text-zinc-600 uppercase tracking-widest text-center">
-              AI Calibration Calibration Matrix Match
+              AI Calibration Matrix Match
             </div>
           </motion.div>
 
@@ -322,7 +320,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="md:col-span-2 glass-card p-8 space-y-6"
+            className="md:col-span-2 glass-card p-6 sm:p-8 space-y-6"
           >
             <div className="flex items-center justify-between border-b border-white/5 pb-4">
               <h3 className="text-xl font-heading font-bold text-white uppercase italic tracking-tight">Chemical Nutrients</h3>
@@ -331,7 +329,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
               </span>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-3">
+            <div className="grid gap-4 sm:gap-6 sm:grid-cols-3">
               {[
                 { name: "Nitrogen (N)", status: nutrients.nitrogen, symbol: "N" },
                 { name: "Phosphorus (P)", status: nutrients.phosphorus, symbol: "P" },
@@ -339,7 +337,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
               ].map((n, idx) => {
                 const metric = getNPKMetrics(n.status);
                 return (
-                  <div key={idx} className="bg-dark-1/40 border border-white/5 rounded-2xl p-5 backdrop-blur-md relative overflow-hidden group">
+                  <div key={idx} className="bg-dark-1/40 border border-white/5 rounded-2xl p-4 sm:p-5 backdrop-blur-md relative overflow-hidden group">
                     <div className="absolute right-3 top-3 font-heading font-black text-6xl text-white/[0.02] pointer-events-none group-hover:scale-110 transition-transform">{n.symbol}</div>
                     
                     <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider block mb-1">{n.name}</span>
@@ -391,7 +389,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.25 }}
-            className="glass-card p-8"
+            className="glass-card p-6 sm:p-8"
           >
             <h3 className="text-lg font-heading font-bold text-white uppercase italic tracking-tight mb-6">Diagnostics Log</h3>
             <ul className="space-y-5">
@@ -413,7 +411,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="md:col-span-2 glass-card p-8 space-y-6"
+            className="md:col-span-2 glass-card p-6 sm:p-8 space-y-6"
           >
             <div className="flex items-center justify-between border-b border-white/5 pb-4">
               <h3 className="text-xl font-heading font-bold text-white uppercase italic tracking-tight">Plant Suitability Index</h3>
@@ -445,7 +443,7 @@ export default function ReportPage({ params }: { params: Promise<{ id: string }>
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35 }}
-            className="glass-card p-8 space-y-6"
+            className="glass-card p-6 sm:p-8 space-y-6"
           >
             <h3 className="text-lg font-heading font-bold text-white uppercase italic tracking-tight">Agronomic Interventions</h3>
             

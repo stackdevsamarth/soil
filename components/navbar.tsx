@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { name: "Solutions", href: "#solutions" },
-  { name: "Technology", href: "#technology" },
-  { name: "Market", href: "#market" },
-  { name: "Impact", href: "#impact" },
+  { name: "Solutions", href: "/#solutions" },
+  { name: "Technology", href: "/#technology" },
+  { name: "Market", href: "/#market" },
+  { name: "Impact", href: "/#impact" },
 ];
 
 export function Navbar() {

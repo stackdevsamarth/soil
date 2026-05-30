@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Home, ScanLine, FileText, Settings, Leaf } from "lucide-react";
+import { Home, ScanLine, FileText } from "lucide-react";
+import { Navbar } from "@/components/navbar";
+import { GlowingBackground } from "@/components/glowing-background";
 
 export default function DashboardLayout({
   children,
@@ -7,43 +9,34 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col min-h-screen bg-zinc-50 dark:bg-zinc-950">
-      {/* Desktop Sidebar & Mobile Topbar Header could go here, but for now let's just make it a clean top bar and bottom nav */}
+    <div className="flex flex-col min-h-screen bg-dark-0 text-white relative selection:bg-brand-lime selection:text-black">
+      {/* Dynamic cinematic backgrounds */}
+      <GlowingBackground />
       
-      <header className="flex h-14 items-center px-4 md:px-6 border-b bg-white dark:bg-zinc-900 sticky top-0 z-40">
-        <Link className="flex items-center gap-2 font-semibold" href="/dashboard">
-          <Leaf className="h-5 w-5 text-green-600" />
-          <span>SoilSense</span>
-        </Link>
-      </header>
+      {/* Unified premium navigation header */}
+      <Navbar />
 
-      <main className="flex-1 pb-16 md:pb-0 overflow-y-auto">
+      <main className="flex-1 pb-24 md:pb-0 pt-16 overflow-y-auto">
         {children}
       </main>
 
-      {/* Mobile Bottom Navigation */}
-      <nav className="md:hidden fixed bottom-0 w-full h-16 border-t bg-white dark:bg-zinc-900 flex items-center justify-around z-50 px-2 pb-safe">
-        <Link href="/dashboard" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-green-600 active:text-green-600">
+      {/* Mobile Bottom Navigation (Glassmorphic) */}
+      <nav className="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-dark-1/80 border-t border-white/5 backdrop-blur-xl flex items-center justify-around z-50 px-4 pb-safe shadow-[0_-8px_32px_rgba(0,0,0,0.5)]">
+        <Link href="/dashboard" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-brand-lime active:text-brand-lime transition-colors">
           <Home className="h-5 w-5" />
-          <span className="text-[10px] mt-1 font-medium">Home</span>
+          <span className="text-[9px] font-mono tracking-wider uppercase mt-1 font-bold">Home</span>
         </Link>
-        <Link href="/scan" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-green-600">
-          <div className="bg-green-600 text-white p-3 rounded-full -mt-6 shadow-lg shadow-green-600/30">
-            <ScanLine className="h-6 w-6" />
+        <Link href="/scan" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-brand-lime transition-all">
+          <div className="bg-brand-lime hover:bg-brand-accent text-dark-0 p-3.5 rounded-2xl -mt-8 shadow-lg shadow-brand-lime/20 border border-white/10 hover:scale-105 active:scale-95 transition-all">
+            <ScanLine className="h-5.5 w-5.5" />
           </div>
-          <span className="text-[10px] mt-1 font-medium">Scan</span>
+          <span className="text-[9px] font-mono tracking-wider uppercase mt-1 font-bold">Scan</span>
         </Link>
-        <Link href="/history" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-green-600">
+        <Link href="/history" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-brand-lime transition-colors">
           <FileText className="h-5 w-5" />
-          <span className="text-[10px] mt-1 font-medium">History</span>
-        </Link>
-        <Link href="/settings" className="flex flex-col items-center justify-center w-full h-full text-zinc-500 hover:text-green-600">
-          <Settings className="h-5 w-5" />
-          <span className="text-[10px] mt-1 font-medium">Settings</span>
+          <span className="text-[9px] font-mono tracking-wider uppercase mt-1 font-bold">History</span>
         </Link>
       </nav>
-
-      {/* Desktop Sidebar (Optional enhancement later) */}
     </div>
   );
 }
