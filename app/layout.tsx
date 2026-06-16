@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth">
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans min-h-screen bg-background text-foreground antialiased selection:bg-brand-lime selection:text-black`}>
         {children}
         <Toaster position="top-center" richColors />

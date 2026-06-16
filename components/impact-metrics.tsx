@@ -1,67 +1,121 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe2, Users, Sprout, ShieldAlert } from "lucide-react";
+import { Sprout, Package, TrendingUp, Leaf } from "lucide-react";
 
-const metrics = [
-  { icon: Globe2, val: "250K+", label: "Hectares Protected", sub: "Degraded land restored across 14 states." },
-  { icon: Users, val: "1.2M", label: "Farmers Empowered", sub: "Reducing cost of input by 30% on average." },
-  { icon: Sprout, val: "18%", label: "Yield Increase", sub: "Verified increase in food production per acre." },
-  { icon: ShieldAlert, val: "40%", label: "Fertilizer Saved", sub: "Stopping unnecessary chemical runoff into rivers." }
+const impacts = [
+  {
+    title: "Better Decisions",
+    icon: Sprout,
+    desc: "Turn invisible soil conditions into clear, actionable insights."
+  },
+  {
+    title: "Lower Input Costs",
+    icon: Package,
+    desc: "Avoid unnecessary fertilizer applications and optimize spending."
+  },
+  {
+    title: "Higher Yield Potential",
+    icon: TrendingUp,
+    desc: "Address nutrient gaps before they impact crop performance."
+  },
+  {
+    title: "Healthier Soils",
+    icon: Leaf,
+    desc: "Support long-term productivity through balanced nutrient management."
+  }
 ];
 
 export function ImpactMetrics() {
   return (
-    <section id="impact" className="py-32 relative bg-dark-0">
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-10 grayscale" />
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-0 via-transparent to-dark-0" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center text-center mb-24">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-brand-lime font-mono text-sm tracking-[0.3em] uppercase mb-4"
+    <section className="py-24 md:py-32 relative bg-background overflow-hidden">
+      <div className="container mx-auto px-4 md:px-8 max-w-6xl">
+        
+        <div className="text-center max-w-4xl mx-auto mb-20 md:mb-32">
+          <motion.div 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             viewport={{ once: true }}
+             className="text-brand-lime font-bold text-sm tracking-[0.2em] uppercase mb-4"
           >
-            Mission // Impact
+            POTENTIAL IMPACT
           </motion.div>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-7xl font-heading font-bold mb-8 italic uppercase tracking-tighter"
+          <motion.h2 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.1 }}
+             viewport={{ once: true }}
+             className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold mb-6 tracking-tight text-foreground"
           >
-            RESTORING THE <span className="text-brand-lime">EARTH'S PULSE</span>
+             What Happens When Farmers <br className="hidden md:block" />
+             Can Finally <span className="text-brand-lime">See Their Soil?</span>
           </motion.h2>
-          <p className="text-zinc-400 max-w-2xl text-lg md:text-xl">
-            We are not just a company. We are a movement to save the world's most valuable asset: its topsoil.
-          </p>
+          <motion.p 
+             initial={{ opacity: 0, y: 20 }}
+             whileInView={{ opacity: 1, y: 0 }}
+             transition={{ delay: 0.2 }}
+             viewport={{ once: true }}
+             className="text-muted-foreground text-lg md:text-xl font-medium max-w-3xl mx-auto"
+          >
+             For too long, soil has been the most important part of farming—and the least understood. SoilSense aims to change that.
+          </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {metrics.map((m, i) => (
-            <motion.div
-              key={m.label}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-8 rounded-[32px] border-white/5 hover:border-brand-lime/30 transition-all group"
-            >
-              <div className="bg-brand-lime/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6 text-brand-lime group-hover:scale-110 transition-transform">
-                <m.icon className="h-6 w-6" />
-              </div>
-              <div className="text-5xl font-heading font-bold text-white mb-2 tracking-tighter italic">
-                {m.val}
-              </div>
-              <div className="text-brand-lime font-bold uppercase text-xs tracking-widest mb-4">
-                {m.label}
-              </div>
-              <p className="text-zinc-500 text-sm leading-relaxed">
-                {m.sub}
-              </p>
-            </motion.div>
-          ))}
+        <div className="relative mb-24">
+          {/* Connecting Wavy Line (Desktop) */}
+          <div className="hidden md:block absolute top-[44px] left-[10%] right-[10%] z-0">
+             <svg width="100%" height="20" viewBox="0 0 100 20" preserveAspectRatio="none" className="overflow-visible stroke-brand-lime/30 fill-transparent stroke-[1px]">
+                <path d="M0,10 C25,20 25,0 50,10 C75,20 75,0 100,10" />
+             </svg>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8 md:gap-4 lg:gap-8 relative z-10">
+            {impacts.map((impact, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="flex flex-col items-center text-center group"
+              >
+                {/* Icon Circle */}
+                <div className="mb-6 relative w-24 h-24 flex items-center justify-center">
+                   {/* Glow effect */}
+                   <div className="absolute inset-0 bg-brand-lime/10 rounded-full blur-xl group-hover:bg-brand-lime/20 transition-all duration-500" />
+                   
+                   {/* Main Circle */}
+                   <div className="relative w-20 h-20 bg-[#F8F8F4] border-2 border-brand-lime/20 rounded-full flex items-center justify-center shadow-sm z-10 group-hover:-translate-y-1 transition-transform duration-500">
+                      {/* Connection dots on the circle border */}
+                      {idx > 0 && <div className="hidden md:block absolute top-1/2 -left-1 -translate-y-1/2 w-2 h-2 bg-brand-lime rounded-full" />}
+                      {idx < impacts.length - 1 && <div className="hidden md:block absolute top-1/2 -right-1 -translate-y-1/2 w-2 h-2 bg-brand-lime rounded-full" />}
+                      
+                      <impact.icon className="w-8 h-8 text-foreground stroke-[1.5]" />
+                   </div>
+                </div>
+                
+                <h3 className="text-xl font-bold text-foreground mb-3">{impact.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base max-w-[240px]">
+                  {impact.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
         </div>
+
+        <motion.div 
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           className="text-center flex items-center justify-center gap-6"
+        >
+           <div className="w-12 h-px bg-border" />
+           <p className="text-lg md:text-xl font-medium text-foreground">
+             One small test. A lifetime of better farming.
+           </p>
+           <div className="w-12 h-px bg-border" />
+        </motion.div>
+
       </div>
     </section>
   );

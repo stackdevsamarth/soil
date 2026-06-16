@@ -11,13 +11,13 @@
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-space-grotesk);
   
-  --color-brand-lime: #8DC63F;
-  --color-brand-deep: #1F5A2E;
-  --color-brand-accent: #C6FF6A;
-  --color-brand-accent-soft: #D9FF9E;
+  --color-brand-lime: #7CBF35;
+  --color-brand-deep: #021B0F;
+  --color-brand-accent: #A5D65A;
+  --color-brand-accent-soft: #C6FF6A;
   
-  --color-dark-0: #05130A;
-  --color-dark-1: #0C2415;
+  --color-dark-0: #021B0F;
+  --color-dark-1: #0A2616;
   --color-dark-2: #12331E;
 
   --color-sidebar-ring: var(--sidebar-ring);
@@ -59,45 +59,45 @@
 }
 
 :root {
-  --background: #F4F8F5;
-  --foreground: #091D11;
+  --background: #F8F8F4;
+  --foreground: #102117;
   --card: #ffffff;
-  --card-foreground: #091D11;
+  --card-foreground: #102117;
   --popover: #ffffff;
-  --popover-foreground: #091D11;
-  --primary: #1F5A2E;
+  --popover-foreground: #102117;
+  --primary: #7CBF35;
   --primary-foreground: #ffffff;
-  --secondary: #8DC63F;
-  --secondary-foreground: #ffffff;
+  --secondary: #A5D65A;
+  --secondary-foreground: #102117;
   --muted: #EBF1EC;
-  --muted-foreground: #405748;
-  --accent: #C6FF6A;
-  --accent-foreground: #1F5A2E;
+  --muted-foreground: #5B665E;
+  --accent: #A5D65A;
+  --accent-foreground: #102117;
   --destructive: oklch(0.577 0.245 27.325);
   --border: #D1DFD5;
   --input: #D1DFD5;
-  --ring: #8DC63F;
-  --radius: 32px;
+  --ring: #7CBF35;
+  --radius: 16px;
 }
 
 .dark {
-  --background: #05130A;
-  --foreground: #EDF7F1;
-  --card: #0C2415;
-  --card-foreground: #EDF7F1;
-  --popover: #0C2415;
-  --popover-foreground: #EDF7F1;
-  --primary: #8DC63F;
-  --primary-foreground: #05130A;
+  --background: #021B0F;
+  --foreground: #F8F8F4;
+  --card: #0A2616;
+  --card-foreground: #F8F8F4;
+  --popover: #0A2616;
+  --popover-foreground: #F8F8F4;
+  --primary: #7CBF35;
+  --primary-foreground: #021B0F;
   --secondary: #1F5A2E;
-  --secondary-foreground: #EDF7F1;
-  --muted: #0A1B10;
+  --secondary-foreground: #F8F8F4;
+  --muted: #0A2616;
   --muted-foreground: #90AFA0;
-  --accent: #C6FF6A;
-  --accent-foreground: #05130A;
-  --border: rgba(141, 198, 63, 0.15);
-  --input: rgba(141, 198, 63, 0.15);
-  --ring: #8DC63F;
+  --accent: #A5D65A;
+  --accent-foreground: #021B0F;
+  --border: rgba(124, 191, 53, 0.2);
+  --input: rgba(124, 191, 53, 0.2);
+  --ring: #7CBF35;
 }
 
 @layer base {
