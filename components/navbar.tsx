@@ -38,14 +38,14 @@ export function Navbar() {
       <div className={cn(
         "max-w-7xl mx-auto rounded-full transition-all duration-500 flex items-center justify-between px-4 md:px-8 py-2 md:py-3 border",
         isScrolled 
-          ? "bg-dark-1/80 backdrop-blur-xl border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.5)]" 
+          ? "bg-white/90 backdrop-blur-xl border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.05)]" 
           : "bg-transparent border-transparent"
       )}>
         <Link href="/" className="flex items-center gap-2 group relative z-[70]">
           <div className="bg-brand-lime p-1.5 md:p-2 rounded-xl group-hover:rotate-12 transition-transform duration-300 shadow-[0_0_15px_rgba(141,198,63,0.3)]">
             <Leaf className="h-5 w-5 md:h-6 md:w-6 text-dark-0" />
           </div>
-          <span className="font-heading font-bold text-lg md:text-2xl tracking-tighter text-white uppercase italic">SoilSense</span>
+          <span className="font-heading font-bold text-lg md:text-2xl tracking-tighter text-[#021B0F] uppercase italic">SoilSense</span>
         </Link>
 
         {/* Desktop Nav */}
@@ -54,7 +54,7 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-bold text-zinc-400 hover:text-brand-lime transition-all uppercase tracking-widest hover:scale-105"
+              className="text-sm font-bold text-[#102117] hover:text-brand-lime transition-all uppercase tracking-widest hover:scale-105"
             >
               {link.name}
             </Link>
@@ -63,7 +63,7 @@ export function Navbar() {
 
         <div className="hidden md:flex items-center gap-6">
           <Link href="/dashboard">
-            <Button variant="ghost" className="text-zinc-400 hover:text-white hover:bg-white/5 rounded-full font-bold uppercase tracking-wider text-xs">
+            <Button variant="ghost" className="text-[#102117] hover:text-brand-lime hover:bg-black/5 rounded-full font-bold uppercase tracking-wider text-xs">
               Sign In
             </Button>
           </Link>
@@ -76,7 +76,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden relative z-[70] p-2 bg-white/5 border border-white/10 rounded-full text-white hover:bg-white/10 transition-colors"
+          className="md:hidden relative z-[70] p-2 bg-black/5 border border-black/10 rounded-full text-[#102117] hover:bg-black/10 transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >

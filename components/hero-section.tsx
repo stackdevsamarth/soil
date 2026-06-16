@@ -13,13 +13,13 @@ export function HeroSection() {
       {/* Fallback color if image fails to load */}
       <div className="absolute inset-0 bg-[#E8F1EB] -z-20" />
       
-      {/* Farm Background Image (Using Unsplash placeholder for farmer/field) */}
+      {/* Farm Background Image (Using exactly the user's provided PPT image) */}
       <div 
-        className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1592982537447-6f2a6a0a386c?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center bg-no-repeat -z-20 opacity-90"
+        className="absolute inset-0 bg-[url('/api/hero-bg')] bg-cover bg-right bg-no-repeat -z-20 opacity-100"
       />
       
-      {/* Gradient to fade out the left side to our background color #F8F8F4 */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#F8F8F4] via-[#F8F8F4]/95 to-transparent -z-10 w-full md:w-[70%]" />
+      {/* Gradient to completely hide the left side (where the PPT text is) and fade out towards the farmer */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#F8F8F4] via-[#F8F8F4] via-[50%] to-transparent -z-10 w-full" />
       
       {/* Top gradient for navbar blending */}
       <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-[#F8F8F4] to-transparent -z-10" />
