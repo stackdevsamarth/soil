@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Leaf, Menu, X, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
@@ -20,7 +19,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,65 +27,70 @@ export function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-[60] transition-all duration-500 px-4 md:px-6 py-4",
-        isScrolled ? "py-2" : "py-6"
+        "fixed top-0 left-0 right-0 z-[60] transition-all duration-300",
+        isScrolled
+          ? "bg-[#F5F2E8]/95 backdrop-blur-md shadow-sm border-b border-black/8"
+          : "bg-[#F5F2E8] border-b border-black/8"
       )}
     >
-      <div className={cn(
-        "max-w-7xl mx-auto rounded-full transition-all duration-500 flex items-center justify-between px-4 md:px-8 py-2 md:py-3 border",
-        isScrolled 
-          ? "bg-white/90 backdrop-blur-xl border-black/5 shadow-[0_8px_32px_rgba(0,0,0,0.05)]" 
-          : "bg-transparent border-transparent"
-      )}>
-        <Link href="/" className="flex items-center gap-2 group relative z-[70]">
-          <div className="bg-brand-lime p-1.5 md:p-2 rounded-xl group-hover:rotate-12 transition-transform duration-300 shadow-[0_0_15px_rgba(141,198,63,0.3)]">
-            <Leaf className="h-5 w-5 md:h-6 md:w-6 text-dark-0" />
+      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 h-16 md:h-[70px]">
+
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+          <div className="bg-[#8DC63F] p-1.5 rounded-lg group-hover:rotate-12 transition-transform duration-300">
+            <Leaf className="h-5 w-5 text-white" strokeWidth={2.5} />
           </div>
-          <span className="font-heading font-bold text-lg md:text-2xl tracking-tighter text-[#021B0F] uppercase italic">SoilSense</span>
+          <span className="font-black text-xl tracking-widest text-[#0D1F13] uppercase">
+            SoilSense
+          </span>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-10">
+        {/* Desktop Nav — centered */}
+        <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-bold text-[#102117] hover:text-brand-lime transition-all uppercase tracking-widest hover:scale-105"
+              className="text-[11px] font-bold text-[#0D1F13]/80 hover:text-[#8DC63F] transition-colors uppercase tracking-[0.16em]"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-6">
-          <Link href="/dashboard">
-            <Button variant="ghost" className="text-[#102117] hover:text-brand-lime hover:bg-black/5 rounded-full font-bold uppercase tracking-wider text-xs">
-              Sign In
-            </Button>
+        {/* Right Actions */}
+        <div className="hidden md:flex items-center gap-5 flex-shrink-0">
+          <Link
+            href="/dashboard"
+            className="text-[11px] font-bold text-[#0D1F13]/70 hover:text-[#0D1F13] uppercase tracking-[0.16em] transition-colors"
+          >
+            Sign In
           </Link>
           <Link href="/scan">
-            <Button className="bg-brand-lime hover:bg-brand-accent text-dark-0 font-bold rounded-full px-8 h-11 shadow-[0_0_25px_-5px_rgba(141,198,63,0.4)] transition-all hover:scale-105 active:scale-95">
-              Launch App <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <button className="flex items-center gap-2 bg-[#8DC63F] hover:bg-[#7ab534] text-white font-bold text-sm uppercase tracking-wide rounded-full px-5 py-2.5 transition-all duration-200 hover:scale-[1.03] active:scale-95 shadow-sm">
+              Launch App
+              <ArrowRight className="h-4 w-4" />
+            </button>
           </Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden relative z-[70] p-2 bg-black/5 border border-black/10 rounded-full text-[#102117] hover:bg-black/10 transition-colors"
+        <button
+          className="md:hidden p-2 rounded-lg text-[#0D1F13] hover:bg-black/5 transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
           <AnimatePresence mode="wait">
             {isMobileMenuOpen ? (
-              <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
+              <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
                 <X className="h-6 w-6" />
               </motion.div>
             ) : (
-              <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}>
+              <motion.div key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
                 <Menu className="h-6 w-6" />
               </motion.div>
             )}
@@ -94,7 +98,7 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -103,42 +107,47 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
-              className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[50] md:hidden"
+              className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[50] md:hidden"
             />
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: -20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: -20 }}
-              className="absolute top-24 left-4 right-4 bg-dark-1 border border-white/10 rounded-[32px] p-8 shadow-2xl md:hidden z-[55] backdrop-blur-2xl"
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
+              className="absolute top-full left-0 right-0 bg-[#F5F2E8] border-b border-black/8 shadow-lg md:hidden z-[55] px-6 py-6"
             >
-              <nav className="flex flex-col gap-6">
+              <nav className="flex flex-col gap-1">
                 {navLinks.map((link, idx) => (
                   <motion.div
                     key={link.name}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -12 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.1 }}
+                    transition={{ delay: idx * 0.05 }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-2xl font-heading font-bold text-zinc-400 hover:text-brand-lime transition-all uppercase italic tracking-tight block py-2 border-b border-white/5"
+                      className="block py-3 text-base font-bold text-[#0D1F13]/80 hover:text-[#8DC63F] uppercase tracking-widest border-b border-black/5 transition-colors"
                     >
                       {link.name}
                     </Link>
                   </motion.div>
                 ))}
-                <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
-                  className="flex flex-col gap-4 pt-6"
+                  transition={{ delay: 0.25 }}
+                  className="flex flex-col gap-3 pt-5"
                 >
-                  <Link href="/dashboard" className="w-full">
-                    <Button variant="outline" className="w-full h-14 rounded-full border-white/10 text-white font-bold uppercase tracking-widest text-sm">Sign In</Button>
+                  <Link href="/dashboard" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <button className="w-full h-12 rounded-full border-2 border-black/10 text-[#0D1F13] font-bold uppercase tracking-widest text-sm hover:border-[#8DC63F] hover:text-[#8DC63F] transition-colors">
+                      Sign In
+                    </button>
                   </Link>
-                  <Link href="/scan" className="w-full">
-                    <Button className="w-full h-14 bg-brand-lime hover:bg-brand-accent text-dark-0 font-bold rounded-full text-lg shadow-[0_10px_20px_-5px_rgba(141,198,63,0.3)]">Launch App</Button>
+                  <Link href="/scan" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+                    <button className="w-full h-12 bg-[#8DC63F] hover:bg-[#7ab534] text-white font-bold rounded-full text-sm uppercase tracking-widest transition-colors flex items-center justify-center gap-2">
+                      Launch App <ArrowRight className="h-4 w-4" />
+                    </button>
                   </Link>
                 </motion.div>
               </nav>
@@ -149,3 +158,4 @@ export function Navbar() {
     </motion.header>
   );
 }
+

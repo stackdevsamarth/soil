@@ -152,15 +152,12 @@ export function ProblemSection() {
                 <div className={`${stat.bg} w-14 h-14 rounded-full flex items-center justify-center shrink-0`}>
                   <stat.icon className={`h-6 w-6 ${stat.color}`} />
                 </div>
-                <div>
-                   <div className={`text-4xl md:text-5xl font-heading font-bold mb-1 ${stat.color}`}>
-                     {stat.value}
-                   </div>
-                   <h4 className="text-white font-bold uppercase tracking-wider text-sm mb-2">{stat.label}</h4>
-                   <p className="text-zinc-400 text-xs leading-relaxed max-w-[200px]">
-                     {stat.description}
-                   </p>
-                </div>
+                 <div>
+                    <h4 className={`font-heading font-bold uppercase tracking-wider text-lg mb-2 ${stat.color}`}>{stat.label}</h4>
+                    <p className="text-zinc-400 text-xs leading-relaxed max-w-[200px]">
+                      {stat.description}
+                    </p>
+                 </div>
              </div>
            ))}
         </motion.div>
