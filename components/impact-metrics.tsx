@@ -5,24 +5,24 @@ import { Sprout, Package, TrendingUp, Leaf } from "lucide-react";
 
 const impacts = [
   {
-    title: "Better Decisions",
+    title: "Confidence in the Field",
     icon: Sprout,
-    desc: "Turn invisible soil conditions into clear, actionable insights."
+    desc: "Stop guessing which fertilizer to buy. Know exactly what nutrients your crops are missing."
   },
   {
-    title: "Lower Input Costs",
+    title: "Save Money on Inputs",
     icon: Package,
-    desc: "Avoid unnecessary fertilizer applications and optimize spending."
+    desc: "Prevent over-fertilization. Only buy and apply what your soil actually needs."
   },
   {
-    title: "Higher Yield Potential",
+    title: "Improve Crop Yields",
     icon: TrendingUp,
-    desc: "Address nutrient gaps before they impact crop performance."
+    desc: "Fix nutrient deficiencies early in the season to ensure healthy growth and better harvest quality."
   },
   {
-    title: "Healthier Soils",
+    title: "Restore Soil Health",
     icon: Leaf,
-    desc: "Support long-term productivity through balanced nutrient management."
+    desc: "Keep your land fertile and productive for future generations by avoiding chemical overuse."
   }
 ];
 
@@ -57,7 +57,7 @@ export function ImpactMetrics() {
              viewport={{ once: true }}
              className="text-muted-foreground text-lg md:text-xl font-medium max-w-3xl mx-auto"
           >
-             For too long, soil has been the most important part of farming—and the least understood. SoilSense aims to change that.
+             For too long, soil health has been the most critical yet least understood factor in agriculture. SoilSense gives you the visibility to build a more productive farm.
           </motion.p>
         </div>
 

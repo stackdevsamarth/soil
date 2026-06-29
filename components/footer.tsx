@@ -15,7 +15,7 @@ export function Footer() {
             <span className="font-heading font-bold text-2xl tracking-tight text-white uppercase italic">SoilSense</span>
           </Link>
           <p className="text-zinc-500 text-lg max-w-sm mb-8 leading-relaxed">
-            Revolutionizing global agriculture through AI-powered soil intelligence. Building a sustainable future, one scan at a time.
+            Providing accessible soil testing and targeted nutrient management to growers worldwide. Building a sustainable future, one scan at a time.
           </p>
           <div className="flex gap-4">
             {[Globe, Shield, Zap, Mail].map((Icon, i) => (
@@ -29,7 +29,7 @@ export function Footer() {
         <div>
           <h4 className="font-heading font-bold text-white uppercase tracking-widest text-sm mb-6">Platform</h4>
           <ul className="space-y-4">
-            {["Technology", "Diagnostics", "Cloud AI", "Security", "Marketplace"].map((item) => (
+            {["Technology", "Diagnostics", "Diagnostics Dashboard", "Security", "Marketplace"].map((item) => (
               <li key={item}>
                 <Link href="#" className="text-zinc-500 hover:text-brand-lime transition-colors">{item}</Link>
               </li>
@@ -51,12 +51,12 @@ export function Footer() {
 
       <div className="max-w-7xl mx-auto mt-24 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-zinc-600 text-sm">
-          © 2026 SoilSense Intelligence Inc. Engineered for the planet.
+          © 2026 SoilSense Intelligence Inc. Handcrafted with 💚 by Techetarian
         </p>
         <div className="flex gap-8">
-          <Link href="#" className="text-zinc-600 hover:text-zinc-400 text-sm transition-colors">Privacy Policy</Link>
-          <Link href="#" className="text-zinc-600 hover:text-zinc-400 text-sm transition-colors">Terms of Service</Link>
-          <Link href="#" className="text-zinc-600 hover:text-zinc-400 text-sm transition-colors">Cookie Policy</Link>
+          <Link href="/privacy-policy" className="text-zinc-600 hover:text-zinc-400 text-sm transition-colors">Privacy Policy</Link>
+          <Link href="/terms-of-service" className="text-zinc-600 hover:text-zinc-400 text-sm transition-colors">Terms of Service</Link>
+          <Link href="/cookie-policy" className="text-zinc-600 hover:text-zinc-400 text-sm transition-colors">Cookie Policy</Link>
         </div>
       </div>
 

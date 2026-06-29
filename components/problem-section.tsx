@@ -6,29 +6,29 @@ import { FlaskConical, MapPin, HelpCircle, TrendingDown, Layers, Search, Clock }
 const problems = [
   {
     icon: FlaskConical,
-    title: "Soil testing takes too long",
-    description: "Traditional labs take up to 15 days for results.",
+    title: "Weeks of waiting",
+    description: "Traditional lab reports take up to two weeks to return, missing the critical window for fertilization.",
     bg: "bg-[#EBF1EC]",
     iconColor: "text-foreground",
   },
   {
     icon: MapPin,
-    title: "Labs are too far",
-    description: "Long distances and limited access cost farmers time, money, and opportunity.",
+    title: "Distant testing centers",
+    description: "Traveling to government or private labs costs farmers precious time and travel expenses.",
     bg: "bg-[#EBF1EC]",
     iconColor: "text-foreground",
   },
   {
     icon: HelpCircle,
-    title: "Guesswork drives fertilization",
-    description: "Without accurate data, farmers guess—and pay the price.",
+    title: "Farming by guesswork",
+    description: "Without knowing actual nutrient levels, farmers end up over-applying or under-applying fertilizers.",
     bg: "bg-[#EBF1EC]",
     iconColor: "text-foreground",
   },
   {
     icon: TrendingDown,
-    title: "Soil degradation continues",
-    description: "Nutrient imbalance today means lower yields tomorrow.",
+    title: "Declining soil health",
+    description: "Using the wrong fertilizer blend damages soil biology and reduces future crop yields.",
     bg: "bg-[#EBF1EC]",
     iconColor: "text-foreground",
   },
@@ -37,25 +37,22 @@ const problems = [
 const stats = [
   {
     icon: FlaskConical,
-    value: "12%",
-    label: "Farmers Test Soil",
-    description: "The vast majority of farmers operate in the dark, leading to inefficiency.",
+    label: "90% of Farms Untested",
+    description: "Most smallholders have never had their soil tested, relying only on traditional routines.",
     color: "text-red-400",
     bg: "bg-red-400/10",
   },
   {
     icon: TrendingDown,
-    value: "40%",
-    label: "Land Degraded",
-    description: "Rapid loss of soil fertility across the subcontinent threatens food security.",
+    label: "Degraded Farmland",
+    description: "Soil organic carbon levels are critically low across millions of hectares of agricultural land.",
     color: "text-orange-400",
     bg: "bg-orange-400/10",
   },
   {
     icon: Layers,
-    value: "78%",
-    label: "Fertilizer Overuse",
-    description: "Excessive chemical usage is poisoning the water table and killing topsoil.",
+    label: "Imbalanced Fertilization",
+    description: "Over-application of urea destroys soil microbes and causes nutrient lockup.",
     color: "text-brand-lime",
     bg: "bg-brand-lime/10",
   },
@@ -93,7 +90,7 @@ export function ProblemSection() {
               viewport={{ once: true }}
               className="text-muted-foreground text-lg md:text-xl max-w-xl font-medium"
             >
-              Traditional labs take 15 days. Field kits are inaccurate. Our soil is dying silently while the world’s population explodes.
+              Healthy soil is the foundation of every successful harvest. Yet millions of hectares of farmland are losing fertility, leaving farmers to guess what their crops need.
             </motion.p>
           </div>
           

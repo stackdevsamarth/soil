@@ -112,7 +112,7 @@ export default function DashboardPage() {
               transition={{ delay: 0.2 }}
               className="col-span-full md:col-span-1 lg:col-span-1 glass-card p-8"
             >
-               <h3 className="text-xl font-heading font-bold text-white uppercase italic tracking-tight mb-8">AI Insights</h3>
+               <h3 className="text-xl font-heading font-bold text-white uppercase italic tracking-tight mb-8">Key Observations</h3>
                <ul className="space-y-6">
                   {latestReport.aiInsights.slice(0, 3).map((insight, idx) => (
                     <li key={idx} className="flex items-start gap-4 group">
@@ -177,7 +177,7 @@ export default function DashboardPage() {
             </div>
             <h3 className="text-3xl font-heading font-bold text-white uppercase italic tracking-tighter mb-4">No Data Detected</h3>
             <p className="text-zinc-500 max-w-sm text-lg mb-10 font-medium">
-              You haven't scanned any soil samples yet. Run your first AI-calibrated scan to generate your health report.
+              You haven't scanned any soil samples yet. Run your first scan to generate your soil health report.
             </p>
             <Link href="/scan">
               <Button className="h-14 px-12 bg-brand-lime hover:bg-brand-accent text-dark-0 font-bold rounded-full text-lg shadow-2xl">

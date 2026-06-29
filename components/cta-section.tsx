@@ -16,7 +16,7 @@ export function CTASection() {
            viewport={{ once: true }}
            className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold tracking-tight mb-6 leading-tight"
         >
-          Every farmer deserves <br/> better soil data.
+          Give your farm the <br/> foundation it deserves.
         </motion.h2>
         
         <motion.p 
@@ -26,7 +26,7 @@ export function CTASection() {
            viewport={{ once: true }}
            className="text-zinc-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-medium"
         >
-          Join the SoilSense early access program and transform how you grow.
+          Start testing your soil today and grow with confidence. Contact us for early access or a demonstration.
         </motion.p>
         
         <motion.div 

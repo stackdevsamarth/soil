@@ -5,18 +5,18 @@ import { motion } from "framer-motion";
 const timeline = [
   {
     year: "2024",
-    title: "THE AI TIPPING POINT",
-    desc: "Edge computing reaches the power necessary for field diagnostics."
+    title: "Better Mobile Cameras",
+    desc: "Smartphone cameras now capture subtle color variations with laboratory-grade consistency."
   },
   {
     year: "2025",
-    title: "GLOBAL MANDATES",
-    desc: "UN directives for chemical reduction in agriculture become law."
+    title: "Rising Fertilizer Costs",
+    desc: "Skyrocketing input prices make targeted, precise nutrient application a necessity for farm survival."
   },
   {
     year: "2026+",
-    title: "THE NEW STANDARD",
-    desc: "SoilSense becomes the core OS for sustainable precision farming."
+    title: "Soil Recovery Shift",
+    desc: "Growers are actively restoring soil biology to reduce reliance on chemical inputs."
   }
 ];
 
@@ -52,8 +52,8 @@ export function WhyNowSection() {
                      <h4 className="text-2xl font-heading font-extrabold text-white mb-2 italic tracking-tight uppercase">{item.title}</h4>
                      <p className="text-[#90AFA0] text-sm md:text-base leading-relaxed">{item.desc}</p>
                    </div>
-                 </motion.div>
-               ))}
+                   </motion.div>
+                ))}
              </div>
           </div>
           
@@ -65,7 +65,7 @@ export function WhyNowSection() {
                viewport={{ once: true }}
                className="text-5xl md:text-7xl font-heading font-extrabold mb-8 italic uppercase tracking-tighter"
             >
-              WHY <span className="text-brand-lime">NOW?</span>
+               WHY <span className="text-brand-lime">NOW?</span>
             </motion.h2>
             <motion.p 
                initial={{ opacity: 0, y: 20 }}
@@ -74,7 +74,7 @@ export function WhyNowSection() {
                viewport={{ once: true }}
                className="text-[#90AFA0] text-lg md:text-xl leading-relaxed mb-8 font-medium"
             >
-              The intersection of food security, climate change, and mobile computing has created a unique window for SoilSense to scale globally.
+               With fertilizer costs rising and soil health declining, farmers need simple, immediate answers to protect their yields and land.
             </motion.p>
           </div>
           

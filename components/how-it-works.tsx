@@ -5,18 +5,18 @@ import { motion } from "framer-motion";
 const steps = [
   {
     num: "01",
-    title: "Prepare",
-    desc: "Use the SoilSense preparation tool to mix soil and water in the right ratio. Get a clean, uniform liquid sample in minutes."
+    title: "Mix",
+    desc: "Take a small soil sample from your field, mix it with water in the preparation tube, and let it settle for a few minutes."
   },
   {
     num: "02",
-    title: "Detect",
-    desc: "Apply a few drops of the liquid sample to the chemical card. Watch the colors respond and reveal key nutrient signals."
+    title: "Test",
+    desc: "Apply a few drops of the liquid sample onto the test card. The indicator patches will change color to show Nitrogen, Phosphorus, and Potassium levels."
   },
   {
     num: "03",
-    title: "Decide",
-    desc: "Scan the card with our AI app. Get instant analysis, expert guidance, and actionable recommendations for your soil."
+    title: "Scan & Solve",
+    desc: "Take a photo of the card inside the app. The system instantly translates the colors into exact nutrient levels and generates a tailored fertilizer plan."
   }
 ];
 
@@ -34,10 +34,10 @@ export function HowItWorks() {
           >
             <span className="text-sm font-bold text-brand-lime uppercase tracking-widest">Our Process</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold tracking-tight text-foreground leading-[1.1]">
-              FROM SOIL TO <span className="text-brand-lime">SOLUTION.</span><br/> THREE SIMPLE STEPS.
+              TEST YOUR SOIL IN <br/><span className="text-brand-lime">THREE SIMPLE STEPS.</span>
             </h2>
             <p className="text-muted-foreground text-lg md:text-xl max-w-2xl mt-4 font-medium">
-              A seamless workflow that turns raw soil into actionable insights.
+              No laboratory equipment required. Anyone can test their soil in under ten minutes.
             </p>
           </motion.div>
         </div>

@@ -413,14 +413,14 @@ export default function ScanPage() {
 
 // Futurized Glowing Loader for Backend Analysis Simulation
 function GlowingLoader() {
-  const [stepText, setStepText] = useState("Analyzing colorimetric signature...");
+  const [stepText, setStepText] = useState("Reading color indicators on your test card...");
 
   useEffect(() => {
     const steps = [
-      "Compensating lighting environment...",
-      "Matching reagents with database indexes...",
-      "Consulting SoilSense AI Engine...",
-      "Compiling soil diagnostics report..."
+      "Adjusting for shadows and field lighting...",
+      "Matching colors against reference chart...",
+      "Calculating nutrient balance (N, P, K)...",
+      "Generating your fertilizer recommendation..."
     ];
     let count = 0;
     const interval = setInterval(() => {
