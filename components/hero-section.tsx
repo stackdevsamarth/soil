@@ -7,22 +7,16 @@ import Link from "next/link";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 pb-32 overflow-hidden">
+    <section className="relative min-h-[90vh] md:min-h-screen flex items-center pt-24 pb-32 overflow-hidden bg-[#F4F8F1]">
 
-      {/* Background Image & Gradient Overlays */}
-      {/* Fallback color if image fails to load */}
-      <div className="absolute inset-0 bg-[#E8F1EB] -z-20" />
-
-      {/* Farm Background Image (Using exactly the user's provided PPT image) */}
+      {/* Flat subtle dot grid pattern */}
       <div
-        className="absolute inset-0 bg-[url('/api/hero-bg')] bg-cover bg-right bg-no-repeat -z-20 opacity-100"
+        className="absolute inset-0 -z-10 opacity-[0.06]"
+        style={{
+          backgroundImage: "radial-gradient(#3a6b2a 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
       />
-
-      {/* Gradient to completely hide the left side (where the PPT text is) and fade out towards the farmer */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#F8F8F4] via-[#F8F8F4] via-[50%] to-transparent -z-10 w-full" />
-
-      {/* Top gradient for navbar blending */}
-      <div className="absolute top-0 w-full h-32 bg-gradient-to-b from-[#F8F8F4] to-transparent -z-10" />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
 
