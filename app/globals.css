@@ -110,6 +110,7 @@
   }
   html {
     @apply scroll-smooth;
+    scroll-padding-top: 130px;
   }
 }
 
@@ -122,12 +123,43 @@
     @apply bg-emerald-950/35 backdrop-blur-md border border-emerald-500/15 rounded-[32px] overflow-hidden;
   }
 
+  .glass-light {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(209, 223, 213, 0.6);
+  }
+
+  .glass-dark {
+    background: rgba(10, 38, 22, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(124, 191, 53, 0.15);
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-lime via-brand-accent to-white;
   }
 
   .bg-cinematic {
-    background: linear-gradient(135deg, #05130A 0%, #0C2415 50%, #12331E 100%);
+    background: linear-gradient(135deg, #021B0F 0%, #0C2415 50%, #12331E 100%);
+  }
+
+  /* Custom Memphis Pattern Utilities - Generous Spacing */
+  .bg-memphis-light {
+    background-color: #FAF9F5;
+    background-image: 
+      radial-gradient(#7CBF35 2px, transparent 2px), 
+      radial-gradient(#021B0F 1.5px, transparent 1.5px);
+    background-size: 56px 56px, 112px 112px;
+    background-position: 0 0, 28px 28px;
+  }
+
+  .bg-memphis-dark {
+    background-color: #021B0F;
+    background-image: 
+      radial-gradient(rgba(124, 191, 53, 0.4) 2px, transparent 2px), 
+      radial-gradient(rgba(255, 255, 255, 0.15) 1.5px, transparent 1.5px);
+    background-size: 60px 60px, 120px 120px;
+    background-position: 0 0, 30px 30px;
   }
 
   .noise {
@@ -137,10 +169,40 @@
   }
 }
 
+.shadow-handcrafted {
+  box-shadow: 0 20px 40px -15px rgba(2, 27, 15, 0.07), 0 0 1px 1px rgba(2, 27, 15, 0.04);
+}
+
+.shadow-glow-sm {
+  box-shadow: 0 0 25px -5px rgba(124, 191, 53, 0.35);
+}
+
+.shadow-glow-lg {
+  box-shadow: 0 0 50px -10px rgba(124, 191, 53, 0.45);
+}
+
 .glow-lime {
   box-shadow: 0 0 40px -10px rgba(141, 198, 63, 0.2);
 }
 
 .glow-text {
   text-shadow: 0 0 20px rgba(141, 198, 63, 0.4);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(3deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 22s linear infinite;
 }
